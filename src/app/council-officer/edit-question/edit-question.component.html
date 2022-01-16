@@ -1,0 +1,68 @@
+<section>
+  <h3>Question: </h3>
+  <div class="question">
+    <p>{{question}}</p>
+    <div>
+      <button [disabled]="isQuestionAnswered" (click)="onEditQuestion(questionId)">edit</button>
+      <button [disabled]="isQuestionAnswered">delete</button>
+    </div>
+  </div>
+  <div>
+    <div class="option-container">
+      <div *ngFor="let option of optionList" class="option">
+        <span>{{option.optionContent}}</span>
+        <div class="btn-container">
+          <button [disabled]="isQuestionAnswered" (click)="onEditOption(option.id)">edit</button>
+          <button [disabled]="isQuestionAnswered" (click)="deleteOption(option.id)">delete</button>
+        </div>
+      </div>
+
+      <div class="form-btn">
+        <a [routerLink]="['../../view-questions']">back</a>
+        <button class="btn-opt" [disabled]="isQuestionAnswered" (click)="onAddOption()">add option</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="black-bg" *ngIf="isEditOption || isAddOption || isEditQuestion"></div>
+
+  <div class="edit-question" *ngIf="isEditQuestion">
+    <h3>Edit Question: </h3>
+    <form [formGroup] = "editQuestionForm" (ngSubmit)="onSubmitEditQuestion()">
+      <textarea formControlName="question" placeholder="value"></textarea>
+      <div class="valid"
+           *ngIf="editQuestionForm.get('question')?.hasError('required') && editQuestionForm.get('question')?.touched">
+        * required
+      </div>
+
+      <input type="submit" value="submit" [disabled]="editQuestionForm.invalid && editQuestionForm.touched">
+      <input type="button" value="cancel" (click)="onClose()">
+    </form>
+  </div>
+
+  <div class="edit-question" *ngIf="isEditOption">
+    <h3>Edit Option: </h3>
+    <form [formGroup] = "editOptionForm" (ngSubmit)="onSubmitEditOption()">
+      <textarea formControlName="option" placeholder="value"></textarea>
+      <div class="valid"
+           *ngIf="editOptionForm.get('option')?.hasError('required') && editOptionForm.get('option')?.touched">
+        * required
+      </div>
+      <input type="submit" value="submit" [disabled]="editOptionForm.invalid && editOptionForm.touched">
+      <input type="button" value="cancel" (click)="onClose()">
+    </form>
+  </div>
+
+  <div class="edit-question" *ngIf="isAddOption">
+    <h3>Add option:</h3>
+    <form [formGroup] = "addOptionForm" (ngSubmit)="onSubmitAddOption()">
+      <textarea formControlName="option" placeholder="option"></textarea>
+      <div class="valid"
+           *ngIf="addOptionForm.get('option')?.hasError('required') && addOptionForm.get('option')?.touched">
+        * required
+      </div>
+      <input type="submit" value="submit" [disabled]="addOptionForm.invalid && addOptionForm.touched">
+      <input type="button" value="cancel" (click)="onClose()">
+    </form>
+  </div>
+</section>

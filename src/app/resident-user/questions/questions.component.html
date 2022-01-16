@@ -1,0 +1,12 @@
+<section>
+
+  <h3>Questions:</h3>
+
+  <p class="sub-title">(click on the questions to answer. Note: You can't answer already answered question)</p>
+
+  <div *ngFor=" let question of questionList">
+    <a [routerLink]="['../answer-question', question.id]">
+      {{question.questionContent}}
+    </a>
+  </div>
+</section>

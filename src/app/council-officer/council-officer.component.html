@@ -1,0 +1,25 @@
+<section>
+  <div class="top">
+    <div>
+      <h1>survey</h1>
+    </div>
+    <div>
+      <button class="logout-btn" (click)="logout()">log out</button>
+    </div>
+  </div>
+  <div class="bot">
+    <div class="left">
+      <ul>
+        <li>
+          <a [routerLink]="['./view-questions']"  [routerLinkActive]="['active']">Home</a>
+        </li>
+        <li>
+          <a [routerLink]="['./add-question']" [routerLinkActive]="['active']">add</a>
+        </li>
+      </ul>
+    </div>
+    <div class="right">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>

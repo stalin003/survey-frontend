@@ -1,0 +1,19 @@
+<section>
+  <h3>Answer the Question: </h3>
+  <div class="question">
+    <p>{{question}}</p>
+  </div>
+  <div>
+    <form [formGroup] = "submitAnswerForm" (ngSubmit)="submitAnswer()">
+      <label *ngFor="let option of optionList">
+        <input formControlName="option" type="radio"  [value]="option.id">
+        <span>{{option.optionContent}}</span>
+      </label>
+
+      <div class="form-btn">
+        <a [routerLink]="['../../questions']">back</a>
+        <input type="submit" value="submit" [disabled]="submitAnswerForm.invalid && submitAnswerForm.touched">
+      </div>
+    </form>
+  </div>
+</section>

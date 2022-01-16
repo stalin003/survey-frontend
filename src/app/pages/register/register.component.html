@@ -1,0 +1,60 @@
+<section>
+
+  <div class="login-container">
+    <h2>Register</h2>
+    <form [formGroup] = "registerForm" (ngSubmit)="register()">
+      <input formControlName="email" type="email" placeholder="email">
+      <div class="valid"
+           *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched">
+        * email required
+      </div>
+      <div class="valid"
+           *ngIf="registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched">
+        * email required
+      </div>
+      <input formControlName="fullName" type="text" placeholder="full name">
+      <div class="valid"
+           *ngIf="registerForm.get('fullName')?.hasError('required') && registerForm.get('fullName')?.touched">
+        * full name required
+      </div>
+
+      <input formControlName="dob" type="date" placeholder="dob">
+      <div class="valid"
+           *ngIf="registerForm.get('dob')?.hasError('required') && registerForm.get('dob')?.touched">
+        * date of birth required
+      </div>
+
+      <textarea formControlName="homeAddress" placeholder="address"></textarea>
+      <div class="valid"
+           *ngIf="registerForm.get('homeAddress')?.hasError('required') && registerForm.get('homeAddress')?.touched">
+        * home address required
+      </div>
+
+      <input formControlName="sni" type="text" placeholder="SNI" [maxLength]="8">
+      <div class="valid"
+           *ngIf="registerForm.get('sni')?.hasError('required') && registerForm.get('sni')?.touched" >
+        * SNI required
+      </div>
+      <div class="valid"
+           *ngIf="registerForm.get('sni')?.hasError('pattern') && registerForm.get('sni')?.touched" >
+        * only digits are accepted
+      </div>
+      <div class="valid"
+           *ngIf="(registerForm.get('sni')?.hasError('minlength') || registerForm.get('sni')?.hasError('maxlength')) && registerForm.get('sni')?.touched" >
+        * SNI should be 8 digits
+      </div>
+
+      <input formControlName="password" type="password" placeholder="password">
+      <div class="valid"
+           *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched">
+        * password required
+      </div>
+      <input type="submit" value="register" [disabled]="registerForm.invalid && registerForm.touched">
+      <div>
+        <span>click here to </span>
+        <a [routerLink]="['../login']">login</a>
+      </div>
+    </form>
+  </div>
+
+</section>

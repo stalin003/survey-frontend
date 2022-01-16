@@ -1,0 +1,48 @@
+section{
+  height: 90vh;
+  width: 90vw;
+  padding: 40px;
+  overflow-x: hidden;
+}
+
+h3{
+  color: #555;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+h4{
+  color: #555;
+}
+
+.valid{
+  color: indianred;
+  font-size: 14px;
+  transform: translate(10px, -5px);
+}
+
+textarea{
+  width: 400px;
+  height: 100px;
+  resize: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+.option-btn-container {
+  display: flex;
+  align-items: center;
+}
+
+button{
+  width: 50px;
+  padding: 5px;
+  border-radius: 4px;
+  margin-left: 40px;
+}
+
+input[type=submit] {
+  width: 100px;
+  padding: 5px;
+  border-radius: 4px;
+  margin-top: 40px;
+}

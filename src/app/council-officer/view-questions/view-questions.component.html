@@ -1,0 +1,16 @@
+<section>
+
+  <h3>Questions:</h3>
+  <p class="sub-title">(click on the questions to edit. Note: You can't edit already answered question)</p>
+
+  <div *ngFor=" let question of questionList">
+    <a [class.fade]="question.answered" [routerLink]="!question.answered ?['../edit-question', question.id] : null">
+      <span class="tick" [class.hide-tick]="!question.answered">&check;</span>
+      {{question.questionContent}}
+    </a>
+
+    <div *ngFor="let attempted of peopleAttempted">
+      <div *ngIf="question.id === attempted.questionId"><span class="attempt">people attempted: </span>{{attempted.peopleAttempted}}</div>
+      </div>
+  </div>
+</section>
