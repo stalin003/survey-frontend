@@ -4,7 +4,7 @@
     <p>{{question}}</p>
     <div>
       <button [disabled]="isQuestionAnswered" (click)="onEditQuestion(questionId)">edit</button>
-      <button [disabled]="isQuestionAnswered">delete</button>
+      <button [disabled]="isQuestionAnswered" (click)="onDeleteQuestion(questionId)">delete</button>
     </div>
   </div>
   <div>

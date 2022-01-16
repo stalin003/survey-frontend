@@ -30,6 +30,6 @@ export class ApiService {
   }
 
   delete(url: string): Observable<any> {
-    return this.http.delete(`${this.api}/${url}`, {observe:'response', responseType: 'json'});
+    return this.http.delete(`${this.api}/${url}`, {observe:'response', responseType: 'text'});
   }
 }

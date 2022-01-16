@@ -64,6 +64,10 @@ export class BackendService {
     return this.api.delete(`${url.option}/${id}`);
   }
 
+  deleteQuestion(id: number): Observable<any> {
+    return this.api.delete(`${url.question}/${id}`);
+  }
+
   createQuestion(questionObj: CreateQuestionInterface): Observable<any> {
     return this.api.modPost(`${url.question}`, questionObj);
   }

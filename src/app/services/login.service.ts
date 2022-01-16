@@ -30,6 +30,8 @@ export class LoginService {
         this.router.navigate(['resident-user']);
 
       }
+    }, error => {
+      alert("wrong username or password");
     })
 
   }

@@ -78,6 +78,17 @@ export class EditQuestionComponent implements OnInit {
 
   }
 
+  onDeleteQuestion(id: number):void {
+    this.backendService.deleteQuestion(id).subscribe(value => {
+
+      alert("deleted successfully");
+      this.router.navigate(['./council-officer']);
+
+    }, error => {
+      alert("failed to delete the question");
+    })
+  }
+
   onEditOption(id: number): void {
     this.isEditOption = true;
 
@@ -189,6 +200,7 @@ export class EditQuestionComponent implements OnInit {
     if (confirm("sure want to delete? ")) {
       this.backendService.deleteOption(id).subscribe(value => {
         alert("successfully deleted option");
+        this.getQuestionInit()
       }, error => {
         alert("failed to delete option");
       })
