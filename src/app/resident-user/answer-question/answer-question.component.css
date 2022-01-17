@@ -39,6 +39,8 @@ input[type=submit], a {
   cursor: pointer;
   margin-bottom: 20px;
   margin-right: 40px;
+  background: #54a0ff;
+  color: #fff;
 }
 
 a{

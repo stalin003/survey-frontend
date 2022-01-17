@@ -38,6 +38,8 @@ button{
   padding: 5px;
   border-radius: 4px;
   margin-left: 40px;
+  background: #54a0ff;
+  color: #fff;
 }
 
 input[type=submit] {
@@ -45,4 +47,6 @@ input[type=submit] {
   padding: 5px;
   border-radius: 4px;
   margin-top: 40px;
+  background: #54a0ff;
+  color: #fff;
 }

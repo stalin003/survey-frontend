@@ -42,6 +42,8 @@ button, a {
   width: 100px;
   border-radius: 10px;
   cursor: pointer;
+  background: #54a0ff;
+  color: #fff;
 
 }
 
